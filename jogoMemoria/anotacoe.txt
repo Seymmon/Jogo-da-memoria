@@ -1,0 +1,3 @@
+[ ] inserir as img a partir do numeroSequencia 
+        colocar id numerando cada uma
+
