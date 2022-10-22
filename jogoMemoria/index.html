@@ -8,30 +8,34 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div id="jett">
+        <img src="/jogoMemoria/image/FundoJett.png" alt="" width="350px">
+    </div>
+    <div id="chamber">
+        <img src="/jogoMemoria/image/FundoChamber.png" alt="" width="350px">
+    </div>
     <div id="conteudo">
-        <h1>Jogo da memoria</h1><br>
-        <div id="divNick">
-            <label for="nick">Qual seu Nick?</label><br>
-            <input type="text" id="nick">
-            <button onkeyup="inputNick(event)" onclick="inputNick()">Enter</button>
-        </div>
+        <h1>Jogo da memoria</h1>
         <div id="apresentacao">
-            <p id="apresentacaoP">Agora você vai escolher seu time</p>
-            <img onclick="startGame()" src="image/buttonStart.png" alt="">
+            <br>
+            <img class="buttonGame" onclick="startGame()" src="image/buttonStart.png" alt="" width="150px">
+            <img class="buttonGame" onclick="restartGame()" src="image/buttonRestart.png" alt="" width="150px"><br><br>
+            <div id="pontos"></div><br>
             <div id="conteinerImg">
                 <img id="img0" class="imgPersonagem" onclick="mudarImg(0)" src="image/fundoVazio.png" alt="">
                 <img id="img1" class="imgPersonagem" onclick="mudarImg(1)" src="image/fundoVazio.png" alt="">
                 <img id="img2" class="imgPersonagem" onclick="mudarImg(2)" src="image/fundoVazio.png" alt="">
-                <img id="img3" class="imgPersonagem" onclick="mudarImg(3)" src="image/fundoVazio.png" alt=""><br>
+                <img id="img3" class="imgPersonagem" onclick="mudarImg(3)" src="image/fundoVazio.png" alt="">
                 <img id="img4" class="imgPersonagem" onclick="mudarImg(4)" src="image/fundoVazio.png" alt="">
                 <img id="img5" class="imgPersonagem" onclick="mudarImg(5)" src="image/fundoVazio.png" alt="">
                 <img id="img6" class="imgPersonagem" onclick="mudarImg(6)" src="image/fundoVazio.png" alt="">
-                <img id="img7" class="imgPersonagem" onclick="mudarImg(7)" src="image/fundoVazio.png" alt=""><br>
+                <img id="img7" class="imgPersonagem" onclick="mudarImg(7)" src="image/fundoVazio.png" alt="">
                 <img id="img8" class="imgPersonagem" onclick="mudarImg(8)" src="image/fundoVazio.png" alt="">
                 <img id="img9" class="imgPersonagem" onclick="mudarImg(9)" src="image/fundoVazio.png" alt="">
                 <img id="img10" class="imgPersonagem" onclick="mudarImg(10)" src="image/fundoVazio.png" alt="">
                 <img id="img11" class="imgPersonagem" onclick="mudarImg(11)" src="image/fundoVazio.png" alt="">
             </div>
+        <div>teste</div>
             
         </div>
 
