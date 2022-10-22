@@ -1,23 +1,52 @@
 body{
-    background-color: #374f7c;
+    background-color: #0d1e2f;
     color: white;
 }
 
+#jett{
+    position: absolute;
+    left: 0;
+    z-index: 10;
+}
+
+#chamber{
+    position: absolute;
+    right: 0px;
+    z-index: 10;
+}
+
+#apresentacao{
+    z-index: 20;
+    position: absolute;
+    right: 80px;
+    left: 100px;
+}
+
 .imgPersonagem{
-    width: 160px;
-    height: 240px;
-    padding: 10px;
+    width: 90px;
+    height: 140px;
+    margin: 5px;
+    border: 2px dashed #fe4858;
 }
 
 #conteinerImg{
-    width: 70%;
-    display: flex;
-    flex-wrap: wrap;
+    width: 85%;
     margin: 0 auto;
+    align-items: center;
 }
 
 #conteudo{
     width: 85%;
     text-align: center; 
     margin: 0 auto;
+    border: 1px solid red;
+}
+
+#pontos{
+    background-color: #e33c4a;
+    width: 90px;
+    height: 20px;
+    margin: 0 auto;  
+    border: 2px solid #3b5d70;  
+    display: none;
 }
