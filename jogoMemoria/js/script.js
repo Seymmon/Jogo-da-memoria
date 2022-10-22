@@ -1,6 +1,10 @@
 var nickName = ''
+let contador = 0
+let pontos = 0
 let armazenarSequencia = []
 let numeroSequencia = []
+let imgVirada = []
+let tagImg = []
 let agentes = [
     {
         id: 0,
@@ -46,25 +50,15 @@ let agentes = [
     }
 ]
 
-
-function inputNick(e){
-    nickName = document.querySelector('#nick').value;
-    console.log('teste ')
-    apresentacao();
-}
-
-function apresentacao(){
-    document.querySelector('#apresentacaoP').textContent = `${nickName} está na hora de conhecer seu time de ranked`
-}
-
 function startGame(){
     sortearLugar()
+    mostrarPontos()
 }
 
 function sortearLugar(){
-    let indiceAgente = Math.floor(Math.random() * 6)
-    for(var i = 0; armazenarSequencia.length < 6; i++){
-        indiceAgente = Math.floor(Math.random() * 6)
+    let indiceAgente = Math.floor(Math.random() * agentes.length)
+    for(var i = 0; armazenarSequencia.length < agentes.length; i++){
+        indiceAgente = Math.floor(Math.random() * agentes.length)
         if(checkNumber(indiceAgente)){
             console.log('O numero ja esta no game')
         } else {
@@ -87,17 +81,54 @@ function checkNumber(indiceAgente){
 function mudarImg(i){
     let indSequencia = numeroSequencia[i]
     document.querySelector(`#img${i}`).setAttribute('src', agentes[indSequencia].img)
-    console.log(indSequencia)
+    verificarEscolha(i,indSequencia)
 }
 
-function mudarImg2(i){
-    let click 
-    let indSequencia = numeroSequencia[i]
-    if(click <= 2){
-        document.querySelector(`#img${i}`).setAttribute('src', agentes[indSequencia].img)
-        console.log(indSequencia)
+function verificarEscolha(imgHtml, indSequencia){
+    tagImg.push(imgHtml)
+    imgVirada.push(indSequencia)
+    console.log(imgVirada)
+
+    if(imgVirada.length == 2){
+        if(imgVirada[0] == imgVirada[1]){
+            pontos = pontos + 10
+            mostrarPontos();
+            imgVirada = []
+            tagImg = []
+        } else {
+            let mostrarImgErrada = setInterval(function(){
+                contador++
+                if(contador > 1){
+                    for(let i in tagImg){
+                        document.querySelector(`#img${tagImg[i]}`).setAttribute('src', "image/fundoVazio.png")
+                    }
+                    pontos = pontos - 3;
+                    mostrarPontos()
+                    imgVirada = []
+                    tagImg = []
+                    contador = 0;
+                    clearInterval(mostrarImgErrada) 
+                }
+                console.log(contador)
+               },300)
+            console.log(contador)
+            
+            
+        }
     }
-    
+    }
+
+function restartGame(){
+    for(var i in numeroSequencia){
+        document.querySelector(`#img${i}`).setAttribute('src', "image/fundoVazio.png")
+        pontos = 0;
+    }
+    startGame()
+}
+
+function mostrarPontos(){
+    document.getElementById('pontos').style.display = 'block'
+    document.getElementById('pontos').innerHTML = `Pontos = ${pontos}`
 }
 
 console.log(agentes)
